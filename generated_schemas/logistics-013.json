@@ -1,0 +1,145 @@
+[
+  {
+    "appsId": "DeliveryService",
+    "formId": "Vehicle",
+    "description": "Information about delivery vehicles",
+    "fields": {
+      "vehicleId": {
+        "fieldId": "vehicleId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "licensePlate": {
+        "fieldId": "licensePlate",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "capacity": {
+        "fieldId": "capacity",
+        "fieldType": "NUMERIC",
+        "required": true
+      },
+      "vehicleType": {
+        "fieldId": "vehicleType",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "DeliveryService",
+    "formId": "Driver",
+    "description": "Information about drivers",
+    "fields": {
+      "driverId": {
+        "fieldId": "driverId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "licenseNumber": {
+        "fieldId": "licenseNumber",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "contactInfo": {
+        "fieldId": "contactInfo",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "vehicleAssignment": {
+        "fieldId": "vehicleAssignment",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Vehicle.vehicleId"
+      }
+    }
+  },
+  {
+    "appsId": "DeliveryService",
+    "formId": "Shipment",
+    "description": "Details about shipments",
+    "fields": {
+      "shipmentId": {
+        "fieldId": "shipmentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "shipmentDate": {
+        "fieldId": "shipmentDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "packageDetails": {
+        "fieldId": "packageDetails",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "packageWeight": {
+              "fieldId": "packageWeight",
+              "fieldType": "NUMERIC"
+            },
+            "packageDimensions": {
+              "fieldId": "packageDimensions",
+              "fieldType": "TEXT"
+            }
+          }
+        }
+      },
+      "driverAssignment": {
+        "fieldId": "driverAssignment",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Driver.driverId"
+      },
+      "vehicleUsed": {
+        "fieldId": "vehicleUsed",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Vehicle.vehicleId"
+      }
+    }
+  },
+  {
+    "appsId": "DeliveryService",
+    "formId": "Route",
+    "description": "Route information for shipments",
+    "fields": {
+      "routeId": {
+        "fieldId": "routeId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "shipmentReference": {
+        "fieldId": "shipmentReference",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Shipment.shipmentId"
+      },
+      "routeDetails": {
+        "fieldId": "routeDetails",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "startLocation": {
+              "fieldId": "startLocation",
+              "fieldType": "TEXT"
+            },
+            "endLocation": {
+              "fieldId": "endLocation",
+              "fieldType": "TEXT"
+            },
+            "stops": {
+              "fieldId": "stops",
+              "fieldType": "TEXT",
+              "allowMultiple": true
+            }
+          }
+        }
+      },
+      "estimatedDeliveryTime": {
+        "fieldId": "estimatedDeliveryTime",
+        "fieldType": "DATE"
+      }
+    }
+  }
+]

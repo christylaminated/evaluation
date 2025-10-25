@@ -1,0 +1,151 @@
+[
+  {
+    "appsId": "FitnessTracker",
+    "formId": "User",
+    "description": "Fitness app user profiles",
+    "fields": {
+      "userId": {
+        "fieldId": "userId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "dateOfBirth": {
+        "fieldId": "dateOfBirth",
+        "fieldType": "DATE"
+      },
+      "height": {
+        "fieldId": "height",
+        "fieldType": "NUMERIC"
+      },
+      "weight": {
+        "fieldId": "weight",
+        "fieldType": "NUMERIC"
+      }
+    }
+  },
+  {
+    "appsId": "FitnessTracker",
+    "formId": "Exercise",
+    "description": "Available exercises and movements",
+    "fields": {
+      "exerciseId": {
+        "fieldId": "exerciseId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "exerciseType": {
+        "fieldId": "exerciseType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "muscleGroup": {
+        "fieldId": "muscleGroup",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "FitnessTracker",
+    "formId": "Workout",
+    "description": "Workout sessions and routines",
+    "fields": {
+      "workoutId": {
+        "fieldId": "workoutId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "userId": {
+        "fieldId": "userId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "User.userId",
+        "required": true
+      },
+      "workoutDate": {
+        "fieldId": "workoutDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "exercises": {
+        "fieldId": "exercises",
+        "fieldType": "EMBED",
+        "allowMultiple": true,
+        "embeddedFormSchema": {
+          "fields": {
+            "exerciseId": {
+              "fieldId": "exerciseId",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "Exercise.exerciseId"
+            },
+            "sets": {
+              "fieldId": "sets",
+              "fieldType": "NUMERIC"
+            },
+            "reps": {
+              "fieldId": "reps",
+              "fieldType": "NUMERIC"
+            },
+            "weight": {
+              "fieldId": "weight",
+              "fieldType": "NUMERIC"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "appsId": "FitnessTracker",
+    "formId": "ProgressLog",
+    "description": "Progress tracking and measurements",
+    "fields": {
+      "logId": {
+        "fieldId": "logId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "userId": {
+        "fieldId": "userId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "User.userId",
+        "required": true
+      },
+      "logDate": {
+        "fieldId": "logDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "weight": {
+        "fieldId": "weight",
+        "fieldType": "NUMERIC"
+      },
+      "bodyFatPercentage": {
+        "fieldId": "bodyFatPercentage",
+        "fieldType": "NUMERIC"
+      }
+    }
+  }
+]

@@ -1,0 +1,208 @@
+[
+  {
+    "appsId": "ProjectManagement",
+    "formId": "Project",
+    "description": "Projects and their high-level information",
+    "fields": {
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "projectName": {
+        "fieldId": "projectName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "startDate": {
+        "fieldId": "startDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "endDate": {
+        "fieldId": "endDate",
+        "fieldType": "DATE"
+      },
+      "budget": {
+        "fieldId": "budget",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "projectManagerId": {
+        "fieldId": "projectManagerId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "TeamMember.memberId",
+        "required": true
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "priority": {
+        "fieldId": "priority",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "ProjectManagement",
+    "formId": "TeamMember",
+    "description": "Team members and their roles",
+    "fields": {
+      "memberId": {
+        "fieldId": "memberId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "role": {
+        "fieldId": "role",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "department": {
+        "fieldId": "department",
+        "fieldType": "TEXT"
+      },
+      "hourlyRate": {
+        "fieldId": "hourlyRate",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "skills": {
+        "fieldId": "skills",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      }
+    }
+  },
+  {
+    "appsId": "ProjectManagement",
+    "formId": "Task",
+    "description": "Individual tasks within projects",
+    "fields": {
+      "taskId": {
+        "fieldId": "taskId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Project.projectId",
+        "required": true
+      },
+      "taskName": {
+        "fieldId": "taskName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "assignedTo": {
+        "fieldId": "assignedTo",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "TeamMember.memberId"
+      },
+      "startDate": {
+        "fieldId": "startDate",
+        "fieldType": "DATE"
+      },
+      "dueDate": {
+        "fieldId": "dueDate",
+        "fieldType": "DATE"
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "priority": {
+        "fieldId": "priority",
+        "fieldType": "TEXT"
+      },
+      "estimatedHours": {
+        "fieldId": "estimatedHours",
+        "fieldType": "NUMERIC"
+      },
+      "actualHours": {
+        "fieldId": "actualHours",
+        "fieldType": "NUMERIC"
+      }
+    }
+  },
+  {
+    "appsId": "ProjectManagement",
+    "formId": "ProjectStatus",
+    "description": "Project status updates and progress tracking",
+    "fields": {
+      "statusId": {
+        "fieldId": "statusId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Project.projectId",
+        "required": true
+      },
+      "statusDate": {
+        "fieldId": "statusDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "completionPercentage": {
+        "fieldId": "completionPercentage",
+        "fieldType": "NUMERIC",
+        "required": true
+      },
+      "budgetSpent": {
+        "fieldId": "budgetSpent",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "notes": {
+        "fieldId": "notes",
+        "fieldType": "TEXT"
+      },
+      "risks": {
+        "fieldId": "risks",
+        "fieldType": "TEXT"
+      },
+      "nextMilestone": {
+        "fieldId": "nextMilestone",
+        "fieldType": "TEXT"
+      }
+    }
+  }
+]

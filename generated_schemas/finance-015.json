@@ -1,0 +1,90 @@
+[
+  {
+    "appsId": "PersonalFinanceManager",
+    "formId": "Transaction",
+    "description": "Records user transactions",
+    "fields": {
+      "transactionId": {
+        "fieldId": "transactionId",
+        "fieldType": "TEXT",
+        "unique": true,
+        "required": true
+      },
+      "transactionDate": {
+        "fieldId": "transactionDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "amount": {
+        "fieldId": "amount",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "type": {
+        "fieldId": "type",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "categoryId": {
+        "fieldId": "categoryId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Category.categoryId"
+      }
+    }
+  },
+  {
+    "appsId": "PersonalFinanceManager",
+    "formId": "Category",
+    "description": "Stores income and expense categories",
+    "fields": {
+      "categoryId": {
+        "fieldId": "categoryId",
+        "fieldType": "TEXT",
+        "unique": true,
+        "required": true
+      },
+      "categoryType": {
+        "fieldId": "categoryType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "PersonalFinanceManager",
+    "formId": "MonthlyBudget",
+    "description": "Tracks monthly budgets",
+    "fields": {
+      "budgetId": {
+        "fieldId": "budgetId",
+        "fieldType": "TEXT",
+        "unique": true,
+        "required": true
+      },
+      "month": {
+        "fieldId": "month",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "budgetAmount": {
+        "fieldId": "budgetAmount",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "categoryId": {
+        "fieldId": "categoryId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Category.categoryId",
+        "required": true
+      }
+    }
+  }
+]

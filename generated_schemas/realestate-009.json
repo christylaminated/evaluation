@@ -1,0 +1,152 @@
+[
+  {
+    "appsId": "PropertyManagement",
+    "formId": "PropertyListing",
+    "description": "Property listings for sale or rent",
+    "fields": {
+      "listingId": {
+        "fieldId": "listingId",
+        "fieldType": "TEXT",
+        "unique": true,
+        "required": true
+      },
+      "listingType": {
+        "fieldId": "listingType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "price": {
+        "fieldId": "price",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD",
+        "required": true
+      },
+      "agentId": {
+        "fieldId": "agentId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Agent.agentId"
+      },
+      "features": {
+        "fieldId": "features",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "bedrooms": {
+              "fieldId": "bedrooms",
+              "fieldType": "NUMERIC"
+            },
+            "bathrooms": {
+              "fieldId": "bathrooms",
+              "fieldType": "NUMERIC"
+            },
+            "squareFootage": {
+              "fieldId": "squareFootage",
+              "fieldType": "NUMERIC"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "appsId": "PropertyManagement",
+    "formId": "Agent",
+    "description": "Real estate agents",
+    "fields": {
+      "agentId": {
+        "fieldId": "agentId",
+        "fieldType": "TEXT",
+        "unique": true,
+        "required": true
+      },
+      "agentName": {
+        "fieldId": "agentName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "contactInfo": {
+        "fieldId": "contactInfo",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "email": {
+              "fieldId": "email",
+              "fieldType": "TEXT"
+            },
+            "phone": {
+              "fieldId": "phone",
+              "fieldType": "TEXT"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "appsId": "PropertyManagement",
+    "formId": "Client",
+    "description": "Clients interested in properties",
+    "fields": {
+      "clientId": {
+        "fieldId": "clientId",
+        "fieldType": "TEXT",
+        "unique": true,
+        "required": true
+      },
+      "clientName": {
+        "fieldId": "clientName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "preferredProperties": {
+        "fieldId": "preferredProperties",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "PropertyListing.listingId",
+        "allowMultiple": true
+      }
+    }
+  },
+  {
+    "appsId": "PropertyManagement",
+    "formId": "Transaction",
+    "description": "Property transactions",
+    "fields": {
+      "transactionId": {
+        "fieldId": "transactionId",
+        "fieldType": "TEXT",
+        "unique": true,
+        "required": true
+      },
+      "listingId": {
+        "fieldId": "listingId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "PropertyListing.listingId",
+        "required": true
+      },
+      "clientId": {
+        "fieldId": "clientId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Client.clientId",
+        "required": true
+      },
+      "transactionDate": {
+        "fieldId": "transactionDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "transactionAmount": {
+        "fieldId": "transactionAmount",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD",
+        "required": true
+      }
+    }
+  }
+]

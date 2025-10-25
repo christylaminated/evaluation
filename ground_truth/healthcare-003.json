@@ -1,0 +1,160 @@
+[
+  {
+    "appsId": "HealthcareManagement",
+    "formId": "Patient",
+    "description": "Patient medical information",
+    "fields": {
+      "patientId": {
+        "fieldId": "patientId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "dateOfBirth": {
+        "fieldId": "dateOfBirth",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "contactInfo": {
+        "fieldId": "contactInfo",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "phone": {
+              "fieldId": "phone",
+              "fieldType": "TEXT"
+            },
+            "email": {
+              "fieldId": "email",
+              "fieldType": "TEXT"
+            },
+            "address": {
+              "fieldId": "address",
+              "fieldType": "TEXT"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "appsId": "HealthcareManagement",
+    "formId": "Doctor",
+    "description": "Healthcare provider profiles",
+    "fields": {
+      "doctorId": {
+        "fieldId": "doctorId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "specialty": {
+        "fieldId": "specialty",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "contactInfo": {
+        "fieldId": "contactInfo",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "phone": {
+              "fieldId": "phone",
+              "fieldType": "TEXT"
+            },
+            "email": {
+              "fieldId": "email",
+              "fieldType": "TEXT"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "appsId": "HealthcareManagement",
+    "formId": "MedicalVisit",
+    "description": "Patient appointments and visits",
+    "fields": {
+      "visitId": {
+        "fieldId": "visitId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "patientId": {
+        "fieldId": "patientId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Patient.patientId",
+        "required": true
+      },
+      "doctorId": {
+        "fieldId": "doctorId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Doctor.doctorId",
+        "required": true
+      },
+      "visitDate": {
+        "fieldId": "visitDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "symptoms": {
+        "fieldId": "symptoms",
+        "fieldType": "TEXT"
+      },
+      "diagnosis": {
+        "fieldId": "diagnosis",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "HealthcareManagement",
+    "formId": "Prescription",
+    "description": "Medical prescriptions and medications",
+    "fields": {
+      "prescriptionId": {
+        "fieldId": "prescriptionId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "visitId": {
+        "fieldId": "visitId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "MedicalVisit.visitId",
+        "required": true
+      },
+      "medication": {
+        "fieldId": "medication",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "dosage": {
+        "fieldId": "dosage",
+        "fieldType": "TEXT"
+      },
+      "refills": {
+        "fieldId": "refills",
+        "fieldType": "NUMERIC"
+      },
+      "cost": {
+        "fieldId": "cost",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  }
+]

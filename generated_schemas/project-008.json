@@ -1,0 +1,141 @@
+[
+  {
+    "appsId": "ProjectManagement",
+    "formId": "TeamMember",
+    "description": "Stores information about team members",
+    "fields": {
+      "teamMemberId": {
+        "fieldId": "teamMemberId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "role": {
+        "fieldId": "role",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "ProjectManagement",
+    "formId": "Project",
+    "description": "Stores project details",
+    "fields": {
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "projectManager": {
+        "fieldId": "projectManager",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "TeamMember.teamMemberId",
+        "required": true
+      },
+      "startDate": {
+        "fieldId": "startDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "endDate": {
+        "fieldId": "endDate",
+        "fieldType": "DATE"
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true,
+        "default": "Not Started"
+      },
+      "budget": {
+        "fieldId": "budget",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  },
+  {
+    "appsId": "ProjectManagement",
+    "formId": "Task",
+    "description": "Stores task details",
+    "fields": {
+      "taskId": {
+        "fieldId": "taskId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Project.projectId",
+        "required": true
+      },
+      "assignedTo": {
+        "fieldId": "assignedTo",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "TeamMember.teamMemberId",
+        "required": true
+      },
+      "deadline": {
+        "fieldId": "deadline",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "taskStatus": {
+        "fieldId": "taskStatus",
+        "fieldType": "TEXT",
+        "required": true,
+        "default": "Not Started"
+      },
+      "taskDescription": {
+        "fieldId": "taskDescription",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "ProjectManagement",
+    "formId": "ProjectStatusUpdate",
+    "description": "Stores project status updates",
+    "fields": {
+      "updateId": {
+        "fieldId": "updateId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Project.projectId",
+        "required": true
+      },
+      "updateDate": {
+        "fieldId": "updateDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "statusUpdate": {
+        "fieldId": "statusUpdate",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "updatedBy": {
+        "fieldId": "updatedBy",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "TeamMember.teamMemberId",
+        "required": true
+      }
+    }
+  }
+]

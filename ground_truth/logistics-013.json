@@ -1,0 +1,255 @@
+[
+  {
+    "appsId": "TransportationLogistics",
+    "formId": "Vehicle",
+    "description": "Delivery vehicles and fleet management",
+    "fields": {
+      "vehicleId": {
+        "fieldId": "vehicleId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "licensePlate": {
+        "fieldId": "licensePlate",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "vehicleType": {
+        "fieldId": "vehicleType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "make": {
+        "fieldId": "make",
+        "fieldType": "TEXT"
+      },
+      "model": {
+        "fieldId": "model",
+        "fieldType": "TEXT"
+      },
+      "year": {
+        "fieldId": "year",
+        "fieldType": "NUMERIC"
+      },
+      "capacity": {
+        "fieldId": "capacity",
+        "fieldType": "NUMERIC",
+        "required": true
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "maintenanceDue": {
+        "fieldId": "maintenanceDue",
+        "fieldType": "DATE"
+      },
+      "fuelType": {
+        "fieldId": "fuelType",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "TransportationLogistics",
+    "formId": "Driver",
+    "description": "Delivery drivers and their information",
+    "fields": {
+      "driverId": {
+        "fieldId": "driverId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "phone": {
+        "fieldId": "phone",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "licenseNumber": {
+        "fieldId": "licenseNumber",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "licenseExpiry": {
+        "fieldId": "licenseExpiry",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "hireDate": {
+        "fieldId": "hireDate",
+        "fieldType": "DATE"
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "TransportationLogistics",
+    "formId": "Shipment",
+    "description": "Shipments and delivery packages",
+    "fields": {
+      "shipmentId": {
+        "fieldId": "shipmentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "trackingNumber": {
+        "fieldId": "trackingNumber",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "senderName": {
+        "fieldId": "senderName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "senderAddress": {
+        "fieldId": "senderAddress",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "recipientName": {
+        "fieldId": "recipientName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "recipientAddress": {
+        "fieldId": "recipientAddress",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "weight": {
+        "fieldId": "weight",
+        "fieldType": "NUMERIC"
+      },
+      "dimensions": {
+        "fieldId": "dimensions",
+        "fieldType": "TEXT"
+      },
+      "shipmentType": {
+        "fieldId": "shipmentType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "shippingCost": {
+        "fieldId": "shippingCost",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "pickupDate": {
+        "fieldId": "pickupDate",
+        "fieldType": "DATE"
+      },
+      "deliveryDate": {
+        "fieldId": "deliveryDate",
+        "fieldType": "DATE"
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "TransportationLogistics",
+    "formId": "Route",
+    "description": "Delivery routes and trip planning",
+    "fields": {
+      "routeId": {
+        "fieldId": "routeId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "routeName": {
+        "fieldId": "routeName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "driverId": {
+        "fieldId": "driverId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Driver.driverId",
+        "required": true
+      },
+      "vehicleId": {
+        "fieldId": "vehicleId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Vehicle.vehicleId",
+        "required": true
+      },
+      "startLocation": {
+        "fieldId": "startLocation",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "endLocation": {
+        "fieldId": "endLocation",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "plannedStartTime": {
+        "fieldId": "plannedStartTime",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "actualStartTime": {
+        "fieldId": "actualStartTime",
+        "fieldType": "DATE"
+      },
+      "estimatedDuration": {
+        "fieldId": "estimatedDuration",
+        "fieldType": "NUMERIC"
+      },
+      "actualDuration": {
+        "fieldId": "actualDuration",
+        "fieldType": "NUMERIC"
+      },
+      "totalDistance": {
+        "fieldId": "totalDistance",
+        "fieldType": "NUMERIC"
+      },
+      "fuelUsed": {
+        "fieldId": "fuelUsed",
+        "fieldType": "NUMERIC"
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  }
+]

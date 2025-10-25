@@ -1,0 +1,224 @@
+[
+  {
+    "appsId": "UniversityResearchLab",
+    "formId": "Faculty",
+    "description": "Faculty members and researchers",
+    "fields": {
+      "facultyId": {
+        "fieldId": "facultyId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "department": {
+        "fieldId": "department",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "researchAreas": {
+        "fieldId": "researchAreas",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      },
+      "hireDate": {
+        "fieldId": "hireDate",
+        "fieldType": "DATE"
+      },
+      "officeLocation": {
+        "fieldId": "officeLocation",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "UniversityResearchLab",
+    "formId": "StudentContributor",
+    "description": "Students contributing to research projects",
+    "fields": {
+      "studentId": {
+        "fieldId": "studentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "program": {
+        "fieldId": "program",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "year": {
+        "fieldId": "year",
+        "fieldType": "NUMERIC"
+      },
+      "advisorId": {
+        "fieldId": "advisorId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Faculty.facultyId"
+      },
+      "gpa": {
+        "fieldId": "gpa",
+        "fieldType": "NUMERIC"
+      },
+      "skills": {
+        "fieldId": "skills",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      }
+    }
+  },
+  {
+    "appsId": "UniversityResearchLab",
+    "formId": "ResearchProject",
+    "description": "Research projects and their details",
+    "fields": {
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "principalInvestigatorId": {
+        "fieldId": "principalInvestigatorId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Faculty.facultyId",
+        "required": true
+      },
+      "startDate": {
+        "fieldId": "startDate",
+        "fieldType": "DATE"
+      },
+      "endDate": {
+        "fieldId": "endDate",
+        "fieldType": "DATE"
+      },
+      "budget": {
+        "fieldId": "budget",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "fundingSource": {
+        "fieldId": "fundingSource",
+        "fieldType": "TEXT"
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "keywords": {
+        "fieldId": "keywords",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      }
+    }
+  },
+  {
+    "appsId": "UniversityResearchLab",
+    "formId": "Publication",
+    "description": "Research publications and papers",
+    "fields": {
+      "publicationId": {
+        "fieldId": "publicationId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "abstract": {
+        "fieldId": "abstract",
+        "fieldType": "TEXT"
+      },
+      "journal": {
+        "fieldId": "journal",
+        "fieldType": "TEXT"
+      },
+      "publicationDate": {
+        "fieldId": "publicationDate",
+        "fieldType": "DATE"
+      },
+      "volume": {
+        "fieldId": "volume",
+        "fieldType": "TEXT"
+      },
+      "issue": {
+        "fieldId": "issue",
+        "fieldType": "TEXT"
+      },
+      "pages": {
+        "fieldId": "pages",
+        "fieldType": "TEXT"
+      },
+      "doi": {
+        "fieldId": "doi",
+        "fieldType": "TEXT",
+        "unique": true
+      },
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "ResearchProject.projectId"
+      },
+      "authors": {
+        "fieldId": "authors",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  }
+]

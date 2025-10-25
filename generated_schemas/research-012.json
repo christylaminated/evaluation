@@ -1,0 +1,140 @@
+[
+  {
+    "appsId": "ResearchManagement",
+    "formId": "Faculty",
+    "description": "Faculty members involved in research projects",
+    "fields": {
+      "facultyId": {
+        "fieldId": "facultyId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "department": {
+        "fieldId": "department",
+        "fieldType": "TEXT"
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "ResearchManagement",
+    "formId": "Student",
+    "description": "Students contributing to research projects",
+    "fields": {
+      "studentId": {
+        "fieldId": "studentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "degreeProgram": {
+        "fieldId": "degreeProgram",
+        "fieldType": "TEXT"
+      },
+      "facultyAdvisor": {
+        "fieldId": "facultyAdvisor",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Faculty.facultyId"
+      }
+    }
+  },
+  {
+    "appsId": "ResearchManagement",
+    "formId": "ResearchProject",
+    "description": "Research projects undertaken by faculty and students",
+    "fields": {
+      "projectId": {
+        "fieldId": "projectId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "principalInvestigator": {
+        "fieldId": "principalInvestigator",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Faculty.facultyId",
+        "required": true
+      },
+      "contributors": {
+        "fieldId": "contributors",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Student.studentId",
+        "allowMultiple": true
+      },
+      "fundingAmount": {
+        "fieldId": "fundingAmount",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "startDate": {
+        "fieldId": "startDate",
+        "fieldType": "DATE"
+      },
+      "endDate": {
+        "fieldId": "endDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "ResearchManagement",
+    "formId": "Publication",
+    "description": "Publications resulting from research projects",
+    "fields": {
+      "publicationId": {
+        "fieldId": "publicationId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "project": {
+        "fieldId": "project",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "ResearchProject.projectId",
+        "required": true
+      },
+      "authors": {
+        "fieldId": "authors",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "author": {
+              "fieldId": "author",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "Faculty.facultyId"
+            },
+            "isPrimaryAuthor": {
+              "fieldId": "isPrimaryAuthor",
+              "fieldType": "BOOLEAN"
+            }
+          }
+        },
+        "allowMultiple": true
+      },
+      "publicationDate": {
+        "fieldId": "publicationDate",
+        "fieldType": "DATE"
+      },
+      "journal": {
+        "fieldId": "journal",
+        "fieldType": "TEXT"
+      }
+    }
+  }
+]

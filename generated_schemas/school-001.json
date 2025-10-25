@@ -1,0 +1,101 @@
+[
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Student",
+    "description": "Student information",
+    "fields": {
+      "studentId": {
+        "fieldId": "studentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "dateOfBirth": {
+        "fieldId": "dateOfBirth",
+        "fieldType": "DATE"
+      },
+      "enrollmentDate": {
+        "fieldId": "enrollmentDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Course",
+    "description": "Course details",
+    "fields": {
+      "courseId": {
+        "fieldId": "courseId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "courseName": {
+        "fieldId": "courseName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "credits": {
+        "fieldId": "credits",
+        "fieldType": "NUMERIC"
+      }
+    }
+  },
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Teacher",
+    "description": "Teacher information",
+    "fields": {
+      "teacherId": {
+        "fieldId": "teacherId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "hireDate": {
+        "fieldId": "hireDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Grade",
+    "description": "Student grades for courses",
+    "fields": {
+      "gradeId": {
+        "fieldId": "gradeId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "studentRef": {
+        "fieldId": "studentRef",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Student.studentId",
+        "required": true
+      },
+      "courseRef": {
+        "fieldId": "courseRef",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Course.courseId",
+        "required": true
+      },
+      "teacherRef": {
+        "fieldId": "teacherRef",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Teacher.teacherId",
+        "required": true
+      },
+      "grade": {
+        "fieldId": "grade",
+        "fieldType": "TEXT"
+      },
+      "gradeDate": {
+        "fieldId": "gradeDate",
+        "fieldType": "DATE"
+      }
+    }
+  }
+]

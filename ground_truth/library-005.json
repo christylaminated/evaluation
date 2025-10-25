@@ -1,0 +1,192 @@
+[
+  {
+    "appsId": "LibraryManagement",
+    "formId": "Author",
+    "description": "Book authors and their biographical information",
+    "fields": {
+      "authorId": {
+        "fieldId": "authorId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "birthDate": {
+        "fieldId": "birthDate",
+        "fieldType": "DATE"
+      },
+      "nationality": {
+        "fieldId": "nationality",
+        "fieldType": "TEXT"
+      },
+      "biography": {
+        "fieldId": "biography",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "LibraryManagement",
+    "formId": "Book",
+    "description": "Books in the library collection",
+    "fields": {
+      "bookId": {
+        "fieldId": "bookId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "isbn": {
+        "fieldId": "isbn",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "authorId": {
+        "fieldId": "authorId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Author.authorId",
+        "required": true,
+        "allowMultiple": true
+      },
+      "genre": {
+        "fieldId": "genre",
+        "fieldType": "TEXT"
+      },
+      "publicationYear": {
+        "fieldId": "publicationYear",
+        "fieldType": "NUMERIC"
+      },
+      "publisher": {
+        "fieldId": "publisher",
+        "fieldType": "TEXT"
+      },
+      "totalCopies": {
+        "fieldId": "totalCopies",
+        "fieldType": "NUMERIC",
+        "required": true
+      },
+      "availableCopies": {
+        "fieldId": "availableCopies",
+        "fieldType": "NUMERIC",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "LibraryManagement",
+    "formId": "Member",
+    "description": "Library members and their contact information",
+    "fields": {
+      "memberId": {
+        "fieldId": "memberId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "phone": {
+        "fieldId": "phone",
+        "fieldType": "TEXT"
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT"
+      },
+      "membershipDate": {
+        "fieldId": "membershipDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "membershipType": {
+        "fieldId": "membershipType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "isActive": {
+        "fieldId": "isActive",
+        "fieldType": "BOOLEAN",
+        "default": true
+      }
+    }
+  },
+  {
+    "appsId": "LibraryManagement",
+    "formId": "LoanRecord",
+    "description": "Book loan transactions and returns",
+    "fields": {
+      "loanId": {
+        "fieldId": "loanId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "memberId": {
+        "fieldId": "memberId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Member.memberId",
+        "required": true
+      },
+      "bookId": {
+        "fieldId": "bookId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Book.bookId",
+        "required": true
+      },
+      "loanDate": {
+        "fieldId": "loanDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "dueDate": {
+        "fieldId": "dueDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "returnDate": {
+        "fieldId": "returnDate",
+        "fieldType": "DATE"
+      },
+      "renewalCount": {
+        "fieldId": "renewalCount",
+        "fieldType": "NUMERIC",
+        "default": 0
+      },
+      "fineAmount": {
+        "fieldId": "fineAmount",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "appsId": "RestaurantManagement",
+    "formId": "Menu",
+    "description": "Represents a menu item in the restaurant",
+    "fields": {
+      "menuItemId": {
+        "fieldId": "menuItemId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "price": {
+        "fieldId": "price",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "ingredients": {
+        "fieldId": "ingredients",
+        "fieldType": "REF_PICK_LIST",
+        "allowMultiple": true,
+        "refPickListId": "Ingredient.ingredientId"
+      }
+    }
+  },
+  {
+    "appsId": "RestaurantManagement",
+    "formId": "Ingredient",
+    "description": "Represents an ingredient used in menu items",
+    "fields": {
+      "ingredientId": {
+        "fieldId": "ingredientId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "quantity": {
+        "fieldId": "quantity",
+        "fieldType": "NUMERIC"
+      },
+      "unit": {
+        "fieldId": "unit",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "RestaurantManagement",
+    "formId": "Customer",
+    "description": "Represents a customer of the restaurant",
+    "fields": {
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "phoneNumber": {
+        "fieldId": "phoneNumber",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "RestaurantManagement",
+    "formId": "Order",
+    "description": "Represents an order placed by a customer",
+    "fields": {
+      "orderId": {
+        "fieldId": "orderId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "REF_PICK_LIST",
+        "required": true,
+        "refPickListId": "Customer.customerId"
+      },
+      "orderDate": {
+        "fieldId": "orderDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "total": {
+        "fieldId": "total",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "orderItems": {
+        "fieldId": "orderItems",
+        "fieldType": "EMBED",
+        "allowMultiple": true,
+        "embeddedFormSchema": {
+          "fields": {
+            "menuItemId": {
+              "fieldId": "menuItemId",
+              "fieldType": "REF_PICK_LIST",
+              "required": true,
+              "refPickListId": "Menu.menuItemId"
+            },
+            "quantity": {
+              "fieldId": "quantity",
+              "fieldType": "NUMERIC",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  }
+]

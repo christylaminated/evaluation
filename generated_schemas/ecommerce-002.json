@@ -1,0 +1,146 @@
+[
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "Product",
+    "description": "Product information",
+    "fields": {
+      "productId": {
+        "fieldId": "productId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "price": {
+        "fieldId": "price",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "stockQuantity": {
+        "fieldId": "stockQuantity",
+        "fieldType": "NUMERIC",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "Customer",
+    "description": "Customer account information",
+    "fields": {
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "ShoppingCart",
+    "description": "Shopping cart information",
+    "fields": {
+      "cartId": {
+        "fieldId": "cartId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Customer.customerId",
+        "required": true
+      },
+      "cartItems": {
+        "fieldId": "cartItems",
+        "fieldType": "EMBED",
+        "allowMultiple": true,
+        "embeddedFormSchema": {
+          "fields": {
+            "productId": {
+              "fieldId": "productId",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "Product.productId"
+            },
+            "quantity": {
+              "fieldId": "quantity",
+              "fieldType": "NUMERIC"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "Order",
+    "description": "Order information",
+    "fields": {
+      "orderId": {
+        "fieldId": "orderId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Customer.customerId",
+        "required": true
+      },
+      "orderDate": {
+        "fieldId": "orderDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "orderItems": {
+        "fieldId": "orderItems",
+        "fieldType": "EMBED",
+        "allowMultiple": true,
+        "embeddedFormSchema": {
+          "fields": {
+            "productId": {
+              "fieldId": "productId",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "Product.productId"
+            },
+            "quantity": {
+              "fieldId": "quantity",
+              "fieldType": "NUMERIC"
+            },
+            "price": {
+              "fieldId": "price",
+              "fieldType": "MONEY",
+              "fractionDigits": 2,
+              "currencyCode": "USD"
+            }
+          }
+        }
+      },
+      "total": {
+        "fieldId": "total",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  }
+]

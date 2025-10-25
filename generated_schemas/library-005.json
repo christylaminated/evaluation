@@ -1,0 +1,136 @@
+[
+  {
+    "appsId": "LibraryManagement",
+    "formId": "Author",
+    "description": "Author details",
+    "fields": {
+      "authorId": {
+        "fieldId": "authorId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "authorName": {
+        "fieldId": "authorName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "birthDate": {
+        "fieldId": "birthDate",
+        "fieldType": "DATE"
+      },
+      "bio": {
+        "fieldId": "bio",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "LibraryManagement",
+    "formId": "Book",
+    "description": "Book details",
+    "fields": {
+      "bookId": {
+        "fieldId": "bookId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "isbn": {
+        "fieldId": "isbn",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "author": {
+        "fieldId": "author",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Author.authorId",
+        "required": true
+      },
+      "publicationDate": {
+        "fieldId": "publicationDate",
+        "fieldType": "DATE"
+      },
+      "price": {
+        "fieldId": "price",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  },
+  {
+    "appsId": "LibraryManagement",
+    "formId": "Member",
+    "description": "Library member details",
+    "fields": {
+      "memberId": {
+        "fieldId": "memberId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "memberName": {
+        "fieldId": "memberName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "joinDate": {
+        "fieldId": "joinDate",
+        "fieldType": "DATE",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "LibraryManagement",
+    "formId": "LoanRecord",
+    "description": "Loan record details",
+    "fields": {
+      "loanId": {
+        "fieldId": "loanId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "book": {
+        "fieldId": "book",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Book.bookId",
+        "required": true
+      },
+      "member": {
+        "fieldId": "member",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Member.memberId",
+        "required": true
+      },
+      "loanDate": {
+        "fieldId": "loanDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "returnDate": {
+        "fieldId": "returnDate",
+        "fieldType": "DATE"
+      },
+      "fine": {
+        "fieldId": "fine",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  }
+]

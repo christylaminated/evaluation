@@ -1,0 +1,141 @@
+[
+  {
+    "appsId": "EventManagement",
+    "formId": "Venue",
+    "description": "Event venue information",
+    "fields": {
+      "venueId": {
+        "fieldId": "venueId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "capacity": {
+        "fieldId": "capacity",
+        "fieldType": "NUMERIC",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "EventManagement",
+    "formId": "Event",
+    "description": "Event planning details",
+    "fields": {
+      "eventId": {
+        "fieldId": "eventId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "eventDate": {
+        "fieldId": "eventDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "venueRef": {
+        "fieldId": "venueRef",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Venue.venueId",
+        "required": true
+      },
+      "ticketPrice": {
+        "fieldId": "ticketPrice",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  },
+  {
+    "appsId": "EventManagement",
+    "formId": "Attendee",
+    "description": "Event participant information",
+    "fields": {
+      "attendeeId": {
+        "fieldId": "attendeeId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "phoneNumber": {
+        "fieldId": "phoneNumber",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "EventManagement",
+    "formId": "TicketSale",
+    "description": "Ticket purchase transactions",
+    "fields": {
+      "ticketSaleId": {
+        "fieldId": "ticketSaleId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "eventRef": {
+        "fieldId": "eventRef",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Event.eventId",
+        "required": true
+      },
+      "attendeeRef": {
+        "fieldId": "attendeeRef",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Attendee.attendeeId",
+        "required": true
+      },
+      "purchaseDate": {
+        "fieldId": "purchaseDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "ticketDetails": {
+        "fieldId": "ticketDetails",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "quantity": {
+              "fieldId": "quantity",
+              "fieldType": "NUMERIC",
+              "required": true
+            },
+            "totalCost": {
+              "fieldId": "totalCost",
+              "fieldType": "MONEY",
+              "fractionDigits": 2,
+              "currencyCode": "USD"
+            }
+          }
+        }
+      }
+    }
+  }
+]

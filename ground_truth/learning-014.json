@@ -1,0 +1,230 @@
+[
+  {
+    "appsId": "OnlineLearningPlatform",
+    "formId": "Instructor",
+    "description": "Course instructors and their credentials",
+    "fields": {
+      "instructorId": {
+        "fieldId": "instructorId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "bio": {
+        "fieldId": "bio",
+        "fieldType": "TEXT"
+      },
+      "qualifications": {
+        "fieldId": "qualifications",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      },
+      "expertise": {
+        "fieldId": "expertise",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      },
+      "rating": {
+        "fieldId": "rating",
+        "fieldType": "NUMERIC"
+      },
+      "joinDate": {
+        "fieldId": "joinDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "OnlineLearningPlatform",
+    "formId": "Course",
+    "description": "Online courses and their content",
+    "fields": {
+      "courseId": {
+        "fieldId": "courseId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "instructorId": {
+        "fieldId": "instructorId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Instructor.instructorId",
+        "required": true
+      },
+      "category": {
+        "fieldId": "category",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "level": {
+        "fieldId": "level",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "duration": {
+        "fieldId": "duration",
+        "fieldType": "NUMERIC"
+      },
+      "price": {
+        "fieldId": "price",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "maxEnrollments": {
+        "fieldId": "maxEnrollments",
+        "fieldType": "NUMERIC"
+      },
+      "isActive": {
+        "fieldId": "isActive",
+        "fieldType": "BOOLEAN",
+        "default": true
+      },
+      "createdDate": {
+        "fieldId": "createdDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "tags": {
+        "fieldId": "tags",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      }
+    }
+  },
+  {
+    "appsId": "OnlineLearningPlatform",
+    "formId": "Student",
+    "description": "Platform students and learners",
+    "fields": {
+      "studentId": {
+        "fieldId": "studentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "dateOfBirth": {
+        "fieldId": "dateOfBirth",
+        "fieldType": "DATE"
+      },
+      "registrationDate": {
+        "fieldId": "registrationDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "profilePicture": {
+        "fieldId": "profilePicture",
+        "fieldType": "TEXT"
+      },
+      "interests": {
+        "fieldId": "interests",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      },
+      "learningGoals": {
+        "fieldId": "learningGoals",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "OnlineLearningPlatform",
+    "formId": "Quiz",
+    "description": "Course quizzes and assessments",
+    "fields": {
+      "quizId": {
+        "fieldId": "quizId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "courseId": {
+        "fieldId": "courseId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Course.courseId",
+        "required": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "timeLimit": {
+        "fieldId": "timeLimit",
+        "fieldType": "NUMERIC"
+      },
+      "totalQuestions": {
+        "fieldId": "totalQuestions",
+        "fieldType": "NUMERIC",
+        "required": true
+      },
+      "passingScore": {
+        "fieldId": "passingScore",
+        "fieldType": "NUMERIC"
+      },
+      "maxAttempts": {
+        "fieldId": "maxAttempts",
+        "fieldType": "NUMERIC"
+      },
+      "isRandomized": {
+        "fieldId": "isRandomized",
+        "fieldType": "BOOLEAN",
+        "default": false
+      },
+      "createdDate": {
+        "fieldId": "createdDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "dueDate": {
+        "fieldId": "dueDate",
+        "fieldType": "DATE"
+      }
+    }
+  }
+]

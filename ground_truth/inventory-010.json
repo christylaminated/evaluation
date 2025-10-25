@@ -1,0 +1,189 @@
+[
+  {
+    "appsId": "InventoryManagement",
+    "formId": "Supplier",
+    "description": "Suppliers and vendor information",
+    "fields": {
+      "supplierId": {
+        "fieldId": "supplierId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "companyName": {
+        "fieldId": "companyName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "contactPerson": {
+        "fieldId": "contactPerson",
+        "fieldType": "TEXT"
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "phone": {
+        "fieldId": "phone",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT"
+      },
+      "paymentTerms": {
+        "fieldId": "paymentTerms",
+        "fieldType": "TEXT"
+      },
+      "isActive": {
+        "fieldId": "isActive",
+        "fieldType": "BOOLEAN",
+        "default": true
+      }
+    }
+  },
+  {
+    "appsId": "InventoryManagement",
+    "formId": "Warehouse",
+    "description": "Warehouse locations and storage facilities",
+    "fields": {
+      "warehouseId": {
+        "fieldId": "warehouseId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "warehouseName": {
+        "fieldId": "warehouseName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "capacity": {
+        "fieldId": "capacity",
+        "fieldType": "NUMERIC"
+      },
+      "managerId": {
+        "fieldId": "managerId",
+        "fieldType": "TEXT"
+      },
+      "phone": {
+        "fieldId": "phone",
+        "fieldType": "TEXT"
+      },
+      "isActive": {
+        "fieldId": "isActive",
+        "fieldType": "BOOLEAN",
+        "default": true
+      }
+    }
+  },
+  {
+    "appsId": "InventoryManagement",
+    "formId": "StockItem",
+    "description": "Stock items and inventory details",
+    "fields": {
+      "itemId": {
+        "fieldId": "itemId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "itemName": {
+        "fieldId": "itemName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "category": {
+        "fieldId": "category",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "barcode": {
+        "fieldId": "barcode",
+        "fieldType": "TEXT",
+        "unique": true
+      },
+      "unitPrice": {
+        "fieldId": "unitPrice",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "unit": {
+        "fieldId": "unit",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "reorderLevel": {
+        "fieldId": "reorderLevel",
+        "fieldType": "NUMERIC"
+      },
+      "warehouseId": {
+        "fieldId": "warehouseId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Warehouse.warehouseId",
+        "required": true
+      },
+      "currentStock": {
+        "fieldId": "currentStock",
+        "fieldType": "NUMERIC",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "InventoryManagement",
+    "formId": "PurchaseOrder",
+    "description": "Purchase orders to suppliers",
+    "fields": {
+      "purchaseOrderId": {
+        "fieldId": "purchaseOrderId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "supplierId": {
+        "fieldId": "supplierId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Supplier.supplierId",
+        "required": true
+      },
+      "orderDate": {
+        "fieldId": "orderDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "expectedDeliveryDate": {
+        "fieldId": "expectedDeliveryDate",
+        "fieldType": "DATE"
+      },
+      "totalAmount": {
+        "fieldId": "totalAmount",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD",
+        "required": true
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "notes": {
+        "fieldId": "notes",
+        "fieldType": "TEXT"
+      }
+    }
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "appsId": "PersonalFinanceManager",
+    "formId": "Transaction",
+    "description": "Financial transaction records",
+    "fields": {
+      "transactionId": {
+        "fieldId": "transactionId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "transactionDate": {
+        "fieldId": "transactionDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "amount": {
+        "fieldId": "amount",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "categoryId": {
+        "fieldId": "categoryId",
+        "fieldType": "REF_PICK_LIST",
+        "required": true,
+        "refPickListId": "Category.categoryId"
+      },
+      "isIncome": {
+        "fieldId": "isIncome",
+        "fieldType": "BOOLEAN",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "PersonalFinanceManager",
+    "formId": "Category",
+    "description": "Income and expense categories",
+    "fields": {
+      "categoryId": {
+        "fieldId": "categoryId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "categoryType": {
+        "fieldId": "categoryType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "PersonalFinanceManager",
+    "formId": "MonthlyBudget",
+    "description": "Monthly budget planning and tracking",
+    "fields": {
+      "budgetId": {
+        "fieldId": "budgetId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "month": {
+        "fieldId": "month",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "categoryId": {
+        "fieldId": "categoryId",
+        "fieldType": "REF_PICK_LIST",
+        "required": true,
+        "refPickListId": "Category.categoryId"
+      },
+      "budgetAmount": {
+        "fieldId": "budgetAmount",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  }
+]

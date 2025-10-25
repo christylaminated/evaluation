@@ -1,0 +1,192 @@
+[
+  {
+    "appsId": "RestaurantOrdering",
+    "formId": "MenuItem",
+    "description": "Restaurant menu items and pricing",
+    "fields": {
+      "menuItemId": {
+        "fieldId": "menuItemId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "itemName": {
+        "fieldId": "itemName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "price": {
+        "fieldId": "price",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD",
+        "required": true
+      },
+      "category": {
+        "fieldId": "category",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "preparationTime": {
+        "fieldId": "preparationTime",
+        "fieldType": "NUMERIC"
+      },
+      "isAvailable": {
+        "fieldId": "isAvailable",
+        "fieldType": "BOOLEAN",
+        "default": true
+      },
+      "calories": {
+        "fieldId": "calories",
+        "fieldType": "NUMERIC"
+      }
+    }
+  },
+  {
+    "appsId": "RestaurantOrdering",
+    "formId": "Ingredient",
+    "description": "Ingredients used in menu items",
+    "fields": {
+      "ingredientId": {
+        "fieldId": "ingredientId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "ingredientName": {
+        "fieldId": "ingredientName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "supplier": {
+        "fieldId": "supplier",
+        "fieldType": "TEXT"
+      },
+      "unit": {
+        "fieldId": "unit",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "costPerUnit": {
+        "fieldId": "costPerUnit",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "stockQuantity": {
+        "fieldId": "stockQuantity",
+        "fieldType": "NUMERIC",
+        "required": true
+      },
+      "minimumStock": {
+        "fieldId": "minimumStock",
+        "fieldType": "NUMERIC"
+      },
+      "expiryDate": {
+        "fieldId": "expiryDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "RestaurantOrdering",
+    "formId": "Customer",
+    "description": "Restaurant customers and their information",
+    "fields": {
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "phone": {
+        "fieldId": "phone",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT"
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT"
+      },
+      "loyaltyPoints": {
+        "fieldId": "loyaltyPoints",
+        "fieldType": "NUMERIC",
+        "default": 0
+      },
+      "allergies": {
+        "fieldId": "allergies",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "RestaurantOrdering",
+    "formId": "Order",
+    "description": "Customer orders and order management",
+    "fields": {
+      "orderId": {
+        "fieldId": "orderId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Customer.customerId"
+      },
+      "orderDate": {
+        "fieldId": "orderDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "tableNumber": {
+        "fieldId": "tableNumber",
+        "fieldType": "TEXT"
+      },
+      "orderType": {
+        "fieldId": "orderType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "totalAmount": {
+        "fieldId": "totalAmount",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD",
+        "required": true
+      },
+      "paymentMethod": {
+        "fieldId": "paymentMethod",
+        "fieldType": "TEXT"
+      },
+      "specialInstructions": {
+        "fieldId": "specialInstructions",
+        "fieldType": "TEXT"
+      }
+    }
+  }
+]

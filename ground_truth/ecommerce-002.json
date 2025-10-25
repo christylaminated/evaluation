@@ -1,0 +1,156 @@
+[
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "Product",
+    "description": "Product catalog information",
+    "fields": {
+      "productId": {
+        "fieldId": "productId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "description": {
+        "fieldId": "description",
+        "fieldType": "TEXT"
+      },
+      "price": {
+        "fieldId": "price",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "stockQuantity": {
+        "fieldId": "stockQuantity",
+        "fieldType": "NUMERIC",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "Customer",
+    "description": "Customer account details",
+    "fields": {
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "ShoppingCart",
+    "description": "Shopping cart management",
+    "fields": {
+      "cartId": {
+        "fieldId": "cartId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Customer.customerId",
+        "required": true
+      },
+      "items": {
+        "fieldId": "items",
+        "fieldType": "EMBED",
+        "allowMultiple": true,
+        "embeddedFormSchema": {
+          "fields": {
+            "productId": {
+              "fieldId": "productId",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "Product.productId"
+            },
+            "quantity": {
+              "fieldId": "quantity",
+              "fieldType": "NUMERIC"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "appsId": "EcommercePlatform",
+    "formId": "Order",
+    "description": "Customer orders and purchases",
+    "fields": {
+      "orderId": {
+        "fieldId": "orderId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "customerId": {
+        "fieldId": "customerId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Customer.customerId",
+        "required": true
+      },
+      "orderDate": {
+        "fieldId": "orderDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "total": {
+        "fieldId": "total",
+        "fieldType": "MONEY",
+        "required": true,
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "orderItems": {
+        "fieldId": "orderItems",
+        "fieldType": "EMBED",
+        "allowMultiple": true,
+        "embeddedFormSchema": {
+          "fields": {
+            "productId": {
+              "fieldId": "productId",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "Product.productId"
+            },
+            "quantity": {
+              "fieldId": "quantity",
+              "fieldType": "NUMERIC"
+            },
+            "price": {
+              "fieldId": "price",
+              "fieldType": "MONEY",
+              "fractionDigits": 2,
+              "currencyCode": "USD"
+            }
+          }
+        }
+      }
+    }
+  }
+]

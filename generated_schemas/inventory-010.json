@@ -1,0 +1,133 @@
+[
+  {
+    "appsId": "InventoryManagement",
+    "formId": "Supplier",
+    "description": "Supplier details",
+    "fields": {
+      "supplierId": {
+        "fieldId": "supplierId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "supplierAddress": {
+        "fieldId": "supplierAddress",
+        "fieldType": "TEXT"
+      },
+      "supplierContact": {
+        "fieldId": "supplierContact",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "InventoryManagement",
+    "formId": "StockItem",
+    "description": "Stock item details",
+    "fields": {
+      "stockItemId": {
+        "fieldId": "stockItemId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "stockItemDescription": {
+        "fieldId": "stockItemDescription",
+        "fieldType": "TEXT"
+      },
+      "unitPrice": {
+        "fieldId": "unitPrice",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  },
+  {
+    "appsId": "InventoryManagement",
+    "formId": "Warehouse",
+    "description": "Warehouse details",
+    "fields": {
+      "warehouseId": {
+        "fieldId": "warehouseId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "warehouseLocation": {
+        "fieldId": "warehouseLocation",
+        "fieldType": "TEXT"
+      },
+      "stockLevels": {
+        "fieldId": "stockLevels",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "stockItem": {
+              "fieldId": "stockItem",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "StockItem.stockItemId"
+            },
+            "quantity": {
+              "fieldId": "quantity",
+              "fieldType": "NUMERIC"
+            }
+          }
+        },
+        "allowMultiple": true
+      }
+    }
+  },
+  {
+    "appsId": "InventoryManagement",
+    "formId": "PurchaseOrder",
+    "description": "Purchase order details",
+    "fields": {
+      "purchaseOrderId": {
+        "fieldId": "purchaseOrderId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "supplier": {
+        "fieldId": "supplier",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Supplier.supplierId"
+      },
+      "orderDate": {
+        "fieldId": "orderDate",
+        "fieldType": "DATE"
+      },
+      "orderItems": {
+        "fieldId": "orderItems",
+        "fieldType": "EMBED",
+        "embeddedFormSchema": {
+          "fields": {
+            "stockItem": {
+              "fieldId": "stockItem",
+              "fieldType": "REF_PICK_LIST",
+              "refPickListId": "StockItem.stockItemId"
+            },
+            "quantityOrdered": {
+              "fieldId": "quantityOrdered",
+              "fieldType": "NUMERIC"
+            },
+            "unitPrice": {
+              "fieldId": "unitPrice",
+              "fieldType": "MONEY",
+              "fractionDigits": 2,
+              "currencyCode": "USD"
+            }
+          }
+        },
+        "allowMultiple": true
+      },
+      "totalCost": {
+        "fieldId": "totalCost",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      }
+    }
+  }
+]

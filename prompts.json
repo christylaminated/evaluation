@@ -1,0 +1,92 @@
+[
+  {
+    "id": "school-001",
+    "prompt": "I need a database to manage students, courses, teachers, and grades for a school.",
+    "expected_schemas_count": 4,
+    "description": "School Management System"
+  },
+  {
+    "id": "ecommerce-002",
+    "prompt": "Create a database to manage products, customer accounts, shopping carts, and orders for an online store.",
+    "expected_schemas_count": 5,
+    "description": "E-Commerce Platform"
+  },
+  {
+    "id": "healthcare-003",
+    "prompt": "Design a database to store patient information, medical visits, prescriptions, and assigned doctors.",
+    "expected_schemas_count": 4,
+    "description": "Healthcare Records System"
+  },
+  {
+    "id": "employee-004",
+    "prompt": "Build a system to track employees, departments, job titles, and salaries for a company.",
+    "expected_schemas_count": 4,
+    "description": "Employee Management System"
+  },
+  {
+    "id": "library-005",
+    "prompt": "Create a database to track books, authors, members, and loan records.",
+    "expected_schemas_count": 4,
+    "description": "Library Management System"
+  },
+  {
+    "id": "fitness-006",
+    "prompt": "Design a database for a fitness app that tracks users, workouts, exercises, and progress logs.",
+    "expected_schemas_count": 4,
+    "description": "Fitness Tracker Application"
+  },
+  {
+    "id": "restaurant-007",
+    "prompt": "I want a database for a restaurant that manages menus, ingredients, customers, and orders.",
+    "expected_schemas_count": 4,
+    "description": "Restaurant Ordering System"
+  },
+  {
+    "id": "project-008",
+    "prompt": "Build a system to manage projects, tasks, deadlines, team members, and project statuses.",
+    "expected_schemas_count": 4,
+    "description": "Project Management System"
+  },
+  {
+    "id": "realestate-009",
+    "prompt": "Create a database to manage property listings, agents, clients, and transactions.",
+    "expected_schemas_count": 4,
+    "description": "Real Estate Management System"
+  },
+  {
+    "id": "inventory-010",
+    "prompt": "Design a database to manage suppliers, stock items, warehouses, and purchase orders.",
+    "expected_schemas_count": 4,
+    "description": "Inventory Management System"
+  },
+  {
+    "id": "events-011",
+    "prompt": "I need a system to track events, venues, attendees, and ticket sales.",
+    "expected_schemas_count": 4,
+    "description": "Event Planning System"
+  },
+  {
+    "id": "research-012",
+    "prompt": "Build a database to organize research projects, publications, faculty, and student contributors.",
+    "expected_schemas_count": 4,
+    "description": "University Research Lab System"
+  },
+  {
+    "id": "logistics-013",
+    "prompt": "Create a database for a delivery service that tracks vehicles, drivers, shipments, and routes.",
+    "expected_schemas_count": 4,
+    "description": "Transportation & Logistics System"
+  },
+  {
+    "id": "learning-014",
+    "prompt": "Design a database for an e-learning app that manages courses, instructors, students, and quizzes.",
+    "expected_schemas_count": 4,
+    "description": "Online Learning Platform"
+  },
+  {
+    "id": "finance-015",
+    "prompt": "Build a database to record user transactions, income categories, expenses, and monthly budgets.",
+    "expected_schemas_count": 4,
+    "description": "Finance / Expense Tracker"
+  }
+]

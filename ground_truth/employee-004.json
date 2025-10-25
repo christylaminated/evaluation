@@ -1,0 +1,118 @@
+[
+  {
+    "appsId": "CompanyHRSystem",
+    "formId": "Department",
+    "description": "Organizational departments",
+    "fields": {
+      "departmentId": {
+        "fieldId": "departmentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "departmentHead": {
+        "fieldId": "departmentHead",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "CompanyHRSystem",
+    "formId": "JobTitle",
+    "description": "Available positions and roles",
+    "fields": {
+      "jobTitleId": {
+        "fieldId": "jobTitleId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "title": {
+        "fieldId": "title",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "jobDescription": {
+        "fieldId": "jobDescription",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "CompanyHRSystem",
+    "formId": "Employee",
+    "description": "Employee personal and professional information",
+    "fields": {
+      "employeeId": {
+        "fieldId": "employeeId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "department": {
+        "fieldId": "department",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Department.departmentId"
+      },
+      "jobTitle": {
+        "fieldId": "jobTitle",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "JobTitle.jobTitleId"
+      },
+      "salary": {
+        "fieldId": "salary",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "hireDate": {
+        "fieldId": "hireDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "CompanyHRSystem",
+    "formId": "SalaryHistory",
+    "description": "Employee compensation history tracking",
+    "fields": {
+      "salaryHistoryId": {
+        "fieldId": "salaryHistoryId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "employee": {
+        "fieldId": "employee",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Employee.employeeId"
+      },
+      "salary": {
+        "fieldId": "salary",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "effectiveDate": {
+        "fieldId": "effectiveDate",
+        "fieldType": "DATE",
+        "required": true
+      }
+    }
+  }
+]

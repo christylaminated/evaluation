@@ -1,0 +1,9 @@
+{
+  "TEXT": ["text", "string", "varchar", "char", "character"],
+  "NUMERIC": ["numeric", "number", "int", "integer", "float", "decimal", "double"],
+  "BOOLEAN": ["boolean", "bool", "flag", "bit", "true_false"],
+  "MONEY": ["money", "currency", "price", "amount", "cost", "dollars"],
+  "DATE": ["date", "datetime", "timestamp", "time"],
+  "REF_PICK_LIST": ["reference", "ref", "foreign_key", "fk", "lookup", "pick_list"],
+  "EMBED": ["embedded", "nested", "object", "json"]
+}

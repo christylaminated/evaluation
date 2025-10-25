@@ -1,0 +1,143 @@
+[
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Student",
+    "description": "Student information and details",
+    "fields": {
+      "studentId": {
+        "fieldId": "studentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "fullName": {
+        "fieldId": "fullName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "dateOfBirth": {
+        "fieldId": "dateOfBirth",
+        "fieldType": "DATE"
+      },
+      "enrollmentDate": {
+        "fieldId": "enrollmentDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Course",
+    "description": "Academic course details",
+    "fields": {
+      "courseId": {
+        "fieldId": "courseId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "courseName": {
+        "fieldId": "courseName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "credits": {
+        "fieldId": "credits",
+        "fieldType": "NUMERIC"
+      },
+      "teacherId": {
+        "fieldId": "teacherId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Teacher.teacherId"
+      }
+    }
+  },
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Teacher",
+    "description": "Faculty member information",
+    "fields": {
+      "teacherId": {
+        "fieldId": "teacherId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "name": {
+        "fieldId": "name",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "hireDate": {
+        "fieldId": "hireDate",
+        "fieldType": "DATE"
+      },
+      "qualification": {
+        "fieldId": "qualification",
+        "fieldType": "TEXT"
+      }
+    }
+  },
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Grade",
+    "description": "Student academic grades",
+    "fields": {
+      "gradeId": {
+        "fieldId": "gradeId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "studentId": {
+        "fieldId": "studentId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Student.studentId",
+        "required": true
+      },
+      "courseId": {
+        "fieldId": "courseId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Course.courseId",
+        "required": true
+      },
+      "grade": {
+        "fieldId": "grade",
+        "fieldType": "TEXT"
+      },
+      "gradeDate": {
+        "fieldId": "gradeDate",
+        "fieldType": "DATE"
+      }
+    }
+  },
+  {
+    "appsId": "SchoolManagement",
+    "formId": "Enrollment",
+    "description": "Course enrollment records",
+    "fields": {
+      "enrollmentId": {
+        "fieldId": "enrollmentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "studentId": {
+        "fieldId": "studentId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Student.studentId",
+        "required": true
+      },
+      "courseId": {
+        "fieldId": "courseId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Course.courseId",
+        "required": true
+      },
+      "enrollmentDate": {
+        "fieldId": "enrollmentDate",
+        "fieldType": "DATE"
+      }
+    }
+  }
+]

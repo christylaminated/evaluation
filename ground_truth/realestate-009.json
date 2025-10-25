@@ -1,0 +1,236 @@
+[
+  {
+    "appsId": "RealEstateManagement",
+    "formId": "Property",
+    "description": "Property listings and details",
+    "fields": {
+      "propertyId": {
+        "fieldId": "propertyId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "address": {
+        "fieldId": "address",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "city": {
+        "fieldId": "city",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "state": {
+        "fieldId": "state",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "zipCode": {
+        "fieldId": "zipCode",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "propertyType": {
+        "fieldId": "propertyType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "bedrooms": {
+        "fieldId": "bedrooms",
+        "fieldType": "NUMERIC"
+      },
+      "bathrooms": {
+        "fieldId": "bathrooms",
+        "fieldType": "NUMERIC"
+      },
+      "squareFootage": {
+        "fieldId": "squareFootage",
+        "fieldType": "NUMERIC"
+      },
+      "listingPrice": {
+        "fieldId": "listingPrice",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD",
+        "required": true
+      },
+      "listingDate": {
+        "fieldId": "listingDate",
+        "fieldType": "DATE",
+        "required": true
+      },
+      "agentId": {
+        "fieldId": "agentId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Agent.agentId",
+        "required": true
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  },
+  {
+    "appsId": "RealEstateManagement",
+    "formId": "Agent",
+    "description": "Real estate agents and their information",
+    "fields": {
+      "agentId": {
+        "fieldId": "agentId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "phone": {
+        "fieldId": "phone",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "licenseNumber": {
+        "fieldId": "licenseNumber",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "agency": {
+        "fieldId": "agency",
+        "fieldType": "TEXT"
+      },
+      "commission": {
+        "fieldId": "commission",
+        "fieldType": "NUMERIC"
+      },
+      "yearsExperience": {
+        "fieldId": "yearsExperience",
+        "fieldType": "NUMERIC"
+      }
+    }
+  },
+  {
+    "appsId": "RealEstateManagement",
+    "formId": "Client",
+    "description": "Clients looking to buy or sell properties",
+    "fields": {
+      "clientId": {
+        "fieldId": "clientId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "firstName": {
+        "fieldId": "firstName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "lastName": {
+        "fieldId": "lastName",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "email": {
+        "fieldId": "email",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "phone": {
+        "fieldId": "phone",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "clientType": {
+        "fieldId": "clientType",
+        "fieldType": "TEXT",
+        "required": true
+      },
+      "budget": {
+        "fieldId": "budget",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "preferredLocations": {
+        "fieldId": "preferredLocations",
+        "fieldType": "TEXT",
+        "allowMultiple": true
+      },
+      "agentId": {
+        "fieldId": "agentId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Agent.agentId"
+      }
+    }
+  },
+  {
+    "appsId": "RealEstateManagement",
+    "formId": "Transaction",
+    "description": "Real estate transactions and sales",
+    "fields": {
+      "transactionId": {
+        "fieldId": "transactionId",
+        "fieldType": "TEXT",
+        "required": true,
+        "unique": true
+      },
+      "propertyId": {
+        "fieldId": "propertyId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Property.propertyId",
+        "required": true
+      },
+      "buyerClientId": {
+        "fieldId": "buyerClientId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Client.clientId"
+      },
+      "sellerClientId": {
+        "fieldId": "sellerClientId",
+        "fieldType": "REF_PICK_LIST",
+        "refPickListId": "Client.clientId"
+      },
+      "salePrice": {
+        "fieldId": "salePrice",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD",
+        "required": true
+      },
+      "closingDate": {
+        "fieldId": "closingDate",
+        "fieldType": "DATE"
+      },
+      "contractDate": {
+        "fieldId": "contractDate",
+        "fieldType": "DATE"
+      },
+      "commission": {
+        "fieldId": "commission",
+        "fieldType": "MONEY",
+        "fractionDigits": 2,
+        "currencyCode": "USD"
+      },
+      "status": {
+        "fieldId": "status",
+        "fieldType": "TEXT",
+        "required": true
+      }
+    }
+  }
+]
